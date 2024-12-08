@@ -45,19 +45,19 @@ class DetailsScreen: BaseActivity() {
 
         medicineDataViewModel = ViewModelProvider(this).get(MedicineDataViewModelViewModel::class.java)
 
-        val postJSON = intent.getStringExtra("MedicineDetail")
+        val medicineJSON = intent.getStringExtra("MedicineDetail")
 
         val gson = Gson()
 
-        val post = gson.fromJson(postJSON, MedicineData::class.java)
+        val medicine = gson.fromJson(medicineJSON, MedicineData::class.java)
 
-        medicineDataViewModel!!.setSelectedPost(post)
+        medicineDataViewModel?.setSelectedMedicine(medicine)
 
-        medicineDataViewModel!!.selectedPost.observe(this) { selectedPost ->
+        medicineDataViewModel?.selectedMedicine?.observe(this) { medicineData ->
 
-            binding.txtName.text = getString(R.string.name)+selectedPost.name
-            binding.txtDose.text =  getString(R.string.Dose)+selectedPost.dose
-            binding.txtStrength.text =  getString(R.string.strength)+selectedPost.strength
+            binding.txtName.text = getString(R.string.name)+medicineData.name
+            binding.txtDose.text =  getString(R.string.Dose)+medicineData.dose
+            binding.txtStrength.text =  getString(R.string.strength)+medicineData.strength
 
         }
     }

@@ -8,9 +8,9 @@
     <application
         android:name=".application.MyApplication"
         android:allowBackup="true"
-        android:icon="@drawable/posticon"
+        android:icon="@drawable/icon"
         android:label="@string/app_name"
-        android:roundIcon="@drawable/posticon"
+        android:roundIcon="@drawable/icon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity

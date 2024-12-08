@@ -30,9 +30,9 @@ class MedicineDataListFragment : Fragment(), ItemListener {
     private lateinit var mainViewModel: MedicineDataViewModelViewModel
     private var medicineDataList: List<MedicineData>? = null
     private val medicineDataRV: RecyclerView
-        get() = requireActivity().findViewById(R.id.postsRV)
-    private val mSwipeRefreshLayoutPost: SwipeRefreshLayout
-        get() = requireActivity().findViewById(R.id.mSwipeRefreshLayoutPost)
+        get() = requireActivity().findViewById(R.id.MedicineRV)
+    private val mSwipeRefreshLayout: SwipeRefreshLayout
+        get() = requireActivity().findViewById(R.id.mSwipeRefreshLayout)
 
 
     override fun onCreateView(
@@ -52,7 +52,7 @@ class MedicineDataListFragment : Fragment(), ItemListener {
         super.onActivityCreated(savedInstanceState)
         mainViewModel = ViewModelProvider(this).get(MedicineDataViewModelViewModel::class.java)
 
-        mSwipeRefreshLayoutPost.setOnRefreshListener {
+        mSwipeRefreshLayout.setOnRefreshListener {
 
             if (AppUtils.isInterConnectionIsAvailable(requireActivity())) {
 
@@ -63,11 +63,9 @@ class MedicineDataListFragment : Fragment(), ItemListener {
                 )
             }
 
-
-
             mainViewModel.medicineDataListLiveData.observe(requireActivity(), Observer {
                 if (it!!.size == 0) {
-                    Toast.makeText(requireActivity(), getString(R.string.Nopostfound), Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireActivity(), getString(R.string.Nomedicinefound), Toast.LENGTH_LONG).show()
                 }
                 medicineDataRV.adapter = null
                 medicineDataList = it
@@ -76,19 +74,16 @@ class MedicineDataListFragment : Fragment(), ItemListener {
 
             })
 
-            mSwipeRefreshLayoutPost.setRefreshing(false)
+            mSwipeRefreshLayout.setRefreshing(false)
         }
 
 
         mainViewModel.medicineDataListLiveData.observe(requireActivity(), Observer {
-
             if (it!!.isEmpty()) {
-                Toast.makeText(requireActivity(), getString(R.string.Nopostfound), Toast.LENGTH_LONG).show()
+                Toast.makeText(requireActivity(), getString(R.string.Nomedicinefound), Toast.LENGTH_LONG).show()
             }
-
             medicineDataList = it
             medicineDataRV.layoutManager = LinearLayoutManager(requireActivity())
-
             medicineDataRV.adapter = MedicineAdapter(it, requireActivity(), this)
         })
 
@@ -97,8 +92,8 @@ class MedicineDataListFragment : Fragment(), ItemListener {
     override fun itemClicked(position: Int, context: Context) {
         val intent = Intent(context, DetailsScreen::class.java)
         val gson = Gson()
-        val postJSON = gson.toJson(medicineDataList?.get(position))
-        intent.putExtra("MedicineDetail", postJSON)
+        val medicineJSON = gson.toJson(medicineDataList?.get(position))
+        intent.putExtra("MedicineDetail", medicineJSON)
         startActivity(intent)
         requireActivity().overridePendingTransition(R.anim.enter, R.anim.exit)
 

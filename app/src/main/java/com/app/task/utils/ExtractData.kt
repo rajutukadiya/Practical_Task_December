@@ -53,7 +53,7 @@ fun extractData(responseBody: JsonObject?): MutableList<MedicineData>? {
                                                                 associatedDrugs.add(
                                                                     MedicineData(name,dose,strength)
                                                                 )
-                                                                println("Drug Name: $name, Dose: $dose, Strength: $strength")
+
 
                                                             }
                                                         }
@@ -70,9 +70,6 @@ fun extractData(responseBody: JsonObject?): MutableList<MedicineData>? {
                 }
             }
 
-            // Log the results
-            Log.e("AssociatedDrugsFromClassName", associatedDrugs.toString())
-            Log.e("AssociatedDrugsFromClassName", associatedDrugs.size.toString())
         return associatedDrugs
         }
 

@@ -17,6 +17,6 @@ class DatabaseModule {
     @Singleton
     @Provides
     fun provideFakerDB(@ApplicationContext context : Context) : MedicineDataDB {
-        return Room.databaseBuilder(context, MedicineDataDB::class.java, "PostDB").build()
+        return Room.databaseBuilder(context, MedicineDataDB::class.java, "MedicineDB").build()
     }
 }

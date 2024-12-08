@@ -16,7 +16,7 @@ import com.app.task.models.MedicineData
  */
 
 class MedicineAdapter(
-    var postItemList: List<MedicineData>,
+    var medicineItemList: List<MedicineData>,
     var context: Context,
     val itemClickListner: ItemListener
 ) : RecyclerView.Adapter<MedicineAdapter.NameViewHolder>() {
@@ -31,7 +31,7 @@ class MedicineAdapter(
 
     override fun onBindViewHolder(holder: NameViewHolder, position: Int) {
         holder.bindData(
-            postItemList,
+            medicineItemList,
             itemClickListner,
             context,
             position
@@ -44,13 +44,11 @@ class MedicineAdapter(
      */
 
     override fun getItemCount(): Int {
-        return postItemList.size
+        return medicineItemList.size
     }
 
     class NameViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var txtName = itemView.findViewById<TextView>(R.id.txtName)
-        var txtDose = itemView.findViewById<TextView>(R.id.txtDose)
-        var txtStrength = itemView.findViewById<TextView>(R.id.txtStrength)
         fun bindData(
             alertItemList: List<MedicineData>,
             itemClickListner: ItemListener,
@@ -59,9 +57,6 @@ class MedicineAdapter(
         ) {
 
             txtName?.text = alertItemList[position].name
-         /*   txtDose?.text = alertItemList[position].dose
-            txtStrength?.text = alertItemList[position].strength*/
-
             itemView.setOnClickListener() {
                 itemClickListner.itemClicked(position, context)
             }

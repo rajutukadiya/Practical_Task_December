@@ -4,11 +4,11 @@
     android:layout_height="match_parent">
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/mSwipeRefreshLayoutPost"
+        android:id="@+id/mSwipeRefreshLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/postsRV"
+            android:id="@+id/MedicineRV"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

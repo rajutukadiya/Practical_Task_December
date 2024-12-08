@@ -1,6 +1,6 @@
 package com.app.task.di
 
-import com.app.task.retrofit.PostAPI
+import com.app.task.retrofit.APIService
 import com.app.task.utils.Constants
 import dagger.Module
 import dagger.Provides
@@ -24,8 +24,8 @@ class NetworkModule {
 
     @Singleton
     @Provides
-    fun providesPostAPI(retrofit: Retrofit) : PostAPI {
-        return retrofit.create(PostAPI::class.java)
+    fun providesMedicineDataAPI(retrofit: Retrofit) : APIService {
+        return retrofit.create(APIService::class.java)
     }
 
 

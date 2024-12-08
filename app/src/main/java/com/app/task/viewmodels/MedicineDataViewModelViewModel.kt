@@ -14,18 +14,18 @@ import javax.inject.Inject
 class MedicineDataViewModelViewModel @Inject constructor(private val repository: MedicineDataRepository) : ViewModel() {
 
     val medicineDataListLiveData : MutableLiveData<List<MedicineData>?>
-    get() = repository.postList
+    get() = repository.medicineDataList
 
-    private val _selectedPost: MutableLiveData<MedicineData> = MutableLiveData()
-    val selectedPost: LiveData<MedicineData> get() = _selectedPost
+    private val _selectedMedicine: MutableLiveData<MedicineData> = MutableLiveData()
+    val selectedMedicine: LiveData<MedicineData> get() = _selectedMedicine
 
     init {
             viewModelScope.launch {
                 repository.getMedicineData()
         }
     }
-    fun setSelectedPost(post: MedicineData) {
-        _selectedPost.value = post
+    fun setSelectedMedicine(medicineData: MedicineData) {
+        _selectedMedicine.value = medicineData
     }
 
 
