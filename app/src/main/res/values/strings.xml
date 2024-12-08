@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">Task App</string>
+
+    <string name="internetAvailableStr">Internet connection available</string>
+    <string name="internetNotAvailableStr">Internet connection not available</string>
+    <string name="logintext" />
+    <string name="log_in">Log in</string>
+    <string name="erroremailaddress">Please enter address</string>
+    <string name="errorpassword">Please enter password</string>
+    <string name="password">Password</string>
+    <string name="Rememberme">Rememberme</string>
+    <string name="Forgotpassword">Forgotpassword</string>
+    <string name="Email">"Email "</string>
+    <string name="loginuser">"Login User : "</string>
+    <string name="hi">"Hi!, "</string>
+    <string name="Nopostfound">No post found</string>
+    <string name="Logout">Logout</string>
+    <string name="logout">Logout</string>
+    <string name="home">Home</string>
+    <string name="Details">Details</string>
+    <string name="name">"Name : "</string>
+    <string name="Dose">Dose : </string>
+    <string name="strength">Strength : </string>
+</resources>
