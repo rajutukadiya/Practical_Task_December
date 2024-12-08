@@ -14,10 +14,6 @@ import com.practicaltask.customview.BaseActivity
 class LoginScreenActivity : BaseActivity() {
     private lateinit var binding: ActivityLoginBinding
 
-sdsfds
-    sf
-    sdf
-
     var pref: PreferenceManager? = null
     override fun MyView(): Int {
         return R.layout.activity_login
